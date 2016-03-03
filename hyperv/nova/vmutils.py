@@ -94,6 +94,7 @@ class VMUtils(object):
     _SHUTDOWN_COMPONENT = "Msvm_ShutdownComponent"
     _VIRTUAL_SYSTEM_CURRENT_SETTINGS = 3
     _AUTOMATIC_STARTUP_ACTION_NONE = 0
+    _AUTOMATIC_SHUTDOWN_ACTION_TURNOFF = 0
 
     _PHYS_DISK_CONNECTION_ATTR = "HostResource"
     _VIRT_DISK_CONNECTION_ATTR = "Connection"
@@ -300,6 +301,8 @@ class VMUtils(object):
         vs_gs_data.ElementName = vm_name
         # Don't start automatically on host boot
         vs_gs_data.AutomaticStartupAction = self._AUTOMATIC_STARTUP_ACTION_NONE
+        # Don't save state when shutdown
+        vs_gs_data.AutomaticShutdownAction = self._AUTOMATIC_SHUTDOWN_ACTION_TURNOFF
         vs_gs_data.ExternalDataRoot = instance_path
         vs_gs_data.SnapshotDataRoot = instance_path
 

@@ -77,6 +77,8 @@ class VMUtilsV2(vmutils.VMUtils):
 
     _AUTOMATIC_STARTUP_ACTION_NONE = 2
 
+    _AUTOMATIC_SHUTDOWN_ACTION_TURNOFF = 2
+
     _remote_fx_res_map = {
         constants.REMOTEFX_MAX_RES_1024x768: 0,
         constants.REMOTEFX_MAX_RES_1280x1024: 1,
@@ -239,6 +241,8 @@ class VMUtilsV2(vmutils.VMUtils):
         vs_data.Notes = notes
         # Don't start automatically on host boot
         vs_data.AutomaticStartupAction = self._AUTOMATIC_STARTUP_ACTION_NONE
+        # Don't save state when shutdown
+        vs_data.AutomaticShutdownAction = self._AUTOMATIC_SHUTDOWN_ACTION_TURNOFF
 
         vs_data.VirtualNumaEnabled = vnuma_enabled
 
